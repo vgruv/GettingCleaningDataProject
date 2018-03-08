@@ -91,3 +91,5 @@ MeanColumns <- function(InDS){ colMeans(inDS[, -c(1,2,82)])}
 tidyMeansDS <- aggregate(.~SubjectID + ActivityID + ActivityDescription, tidyDS, mean)
 tidyMeansDS <- tidyMeansDS[order(tidyMeansDS$SubjectID, tidyMeansDS$ActivityID, tidyMeansDS$ActivityDescription),]
 
+# to write a text file
+write.table(tidyMeansDS, "TidyMeans.txt", row.name=FALSE)
